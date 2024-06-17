@@ -1,0 +1,11 @@
+name: EvoDragons
+version: '${project.version}'
+main: me.syntaxerror.evodragons.EvoDragons
+api-version: '1.16'
+commands:
+  dragon:
+    description: test
+    usage: /<command>
+  evodragons:
+    description: all commands related to EvoDragons
+    usage: /<command>

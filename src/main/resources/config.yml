@@ -1,0 +1,395 @@
+enable_legacy_attacks: false
+attacks:
+  lightning_attack:
+    damage: 0.0
+    info_quote: <dragon_name> struck you with lightning, dealing <damage> damage.
+    attack_quotes:
+      - Lightning Battle!
+      - I really enjoy striking you.
+      - Just a little lightning for you to taste ;)
+  fire_attack:
+    seconds: 10
+    info_quote: <dragon_name> set you on fire for <seconds> seconds.
+    attack_quotes:
+      - I learnt this from the blazes!
+      - Fire!
+  explosion_attack:
+    damage: 5.0
+    knockback: 1
+    info_quote: <dragon_name> exploded you for <damage> damage.
+    attack_quotes:
+      - Feel the heat of my wrath!
+      - All you see will be explosions!
+      - Explode! Explode! EXPLODE!
+  fling_attack:
+    power: 10
+    allow_elytra: false
+    elytra_attempt_quote: There seems to be a powerful force forcing your elytra to close.
+    info_quote: <dragon_name> flung you high into the air.
+    attack_quotes:
+      - Up into the air!
+      - I learnt this from the Iron Golem!
+      - Too bad you can't fly.
+  ender_guard_attack:
+    name: Ender Guard
+    damage: 2.0
+    health: 50.0
+    teleport: true
+    teleport_quote: Don't think you can escape me.
+    info_quote: <dragon_name> summoned an <ender_guard_name> on you.
+    attack_quotes:
+      - Here's a little pal for you to play with!
+      - Hey Ender Guards, have fun with the human!
+      - I summon my Guards!
+      - Guards attack!
+  lava_attack:
+    block_height: 5
+    damage: 5.0
+    info_quote: <dragon_name> used lava attack on you, dealing a total of <damage> damage.
+    attack_quotes:
+      - Have you ever swum in lava?
+      - I constructed a lava fountain for you!
+  freeze_attack:
+    damage: 5.0
+    seconds: 5
+    ice_break_attempt_quote: Frost Block refuses to be broken......
+    info_quote: <dragon_name> froze you for <seconds> seconds, dealing a total of <damage> damage.
+    attack_quotes:
+      - Freeze!
+      - You shall go nowhere!
+      - This chilly blizzard will stop you!
+  sonic_wave_attack:
+    damage: 5.0
+    info_quote: <dragon_name> used sonic wave on you, dealing a total of <damage> damage.
+    attack_quotes:
+      - Have this wave!
+      - It's time I upped my game!
+  potion_attack:
+    seconds: 10
+    info_quote: <dragon_name> gave you blindness, nausea, weakness and slowness for <seconds> seconds.
+    attack_quotes:
+      - Splash splash splash
+      - The witch gave me these!
+      - Too bad you aren't immune to potions like I am!
+  enderman_attack:
+    enderman_attack_quote: I attack.
+    no_endermen_nearby_quote: You are lucky there are no Endermen near you...
+    info_quote: <dragon_name> summoned Endermen to attack you.
+    attack_quotes:
+      - I summon my guards!
+      - Endermen! Attack!
+  boulder_attack:
+    damage: 5.0
+    info_quote: <dragon_name> summoned boulders on you, which hit you for <damage> damage.
+    attack_quotes:
+      - I'd like to see you run from these boulders.
+  ender_spirit_attack:
+    name: Ender Spirit
+    number: 2
+    health: 10.0
+    damage: 4.0
+    spawn_quote: I will avenge the fallen Endermen.
+    info_quote: <dragon_name> summoned <ender_spirit_number> <ender_spirit_name> on you.
+    attack_quotes:
+      - I shall let these spirits haunt you!
+      - These are the spirits of my fallen Endermen!
+  bow_inaccuracy_attack:
+    seconds: 10
+    max_degrees: 22
+    info_quote: <dragon_name> made your bow shots inaccurate for <seconds> seconds.
+    attack_quotes:
+      - I shall make your bow shots inaccurate
+      - Good luck shooting with your bow now!
+  flood_attack:
+    damage: 5.0
+    seconds: 5
+    info_quote: <dragon_name> flooded you for <seconds> seconds, dealing a total of <damage> damage.
+    attack_quotes:
+      - Some water to drown you.
+
+power_up_spawn_quote: A PowerUp spawned near you!
+power_up_activate_quote: You activated the <power_up_name> PowerUp!
+power_up_expire_quote: Your <power_up_name> PowerUp ran out!
+power_ups:
+  armor_resistance:
+    name: Armor Resistance
+    seconds: 10
+    damage_reduction: 0.5
+  attack_shield:
+    name: Attack Shield
+    seconds: 10
+  homing_arrows:
+    name: Homing Arrows
+    seconds: 10
+  melee_strength:
+    name: Melee Strength
+    seconds: 10
+    damage_increase: 0.5
+  projectile_power:
+    name: Projectile Power
+    seconds: 10
+    damage_increase: 0.5
+
+dragons:
+  energy_dragon:
+    name: "Electro Dragon"
+    spawn_chance: 1
+    health: 2000.0
+    boss_bar_color: PURPLE
+    name_color: DARK_PURPLE
+    seconds_between_talk: 10
+    talk_chance: 0.5
+    seconds_between_attack: 20
+    attack_chance: 1
+    seconds_between_power_up: 20
+    power_up_chance: 1
+    land_at_portal_chance: 0.5
+    bed_damage: 1.0
+    spawn_quotes:
+      - I will crush you in this battle!
+      - Our battle will be legendary!
+      - Enough talking! Let's get to fighting!
+      - I will avenge my fallen endermen!
+      - Let's dance!
+    talk_quotes:
+      - Why are humans so chaotic?
+      - Time to sweat!
+      - Don't make me turn on my hack client!
+      - I'll make you pay for the times you murdered my endermen!
+      - I'm going to make you regret your actions!
+      - Don't make me use /kill!
+      - Cheater!
+      - Watchdog report!
+      - I'm going to crash your Minecraft!
+    death_quotes:
+      - I see you are quite the human...
+      - Of course you'll win! You have a better gaming chair!
+      - Welp...
+      - I guess that's it then...
+      - When will someone stop taking the genocide route?
+      - Nobody will ever win in this endless loop of death and respawning.
+    attacks:
+      lightning_attack: true
+      fire_attack: true
+      explosion_attack: true
+      fling_attack: true
+      ender_guard_attack: true
+      lava_attack: true
+      freeze_attack: true
+      sonic_wave_attack: true
+      potion_attack: true
+      enderman_attack: true
+      boulder_attack: true
+      ender_spirit_attack: true
+      bow_inaccuracy_attack: true
+      flood_attack: true
+    power_ups:
+      armor_resistance: true
+      attack_shield: true
+      homing_arrows: true
+      melee_strength: true
+      projectile_power: true
+
+  fire_dragon:
+    name: "Inferno Dragon"
+    spawn_chance: 0.2
+    health: 2000.0
+    boss_bar_color: RED
+    name_color: RED
+    seconds_between_talk: 10
+    talk_chance: 0.5
+    seconds_between_attack: 20
+    attack_chance: 0.5
+    land_at_portal_chance: 0.5
+    bed_damage: 1.0
+    spawn_quotes:
+      - I will crush you in this battle!
+      - Our battle will be legendary!
+      - Enough talking! Let's get to fighting!
+      - I will avenge my fallen endermen!
+      - Let's dance!
+    talk_quotes:
+      - Why are humans so chaotic?
+      - Time to sweat!
+      - Don't make me turn on my hack client!
+      - I'll make you pay for the times you murdered my endermen!
+      - I'm going to make you regret your actions!
+      - Don't make me use /kill!
+      - Cheater!
+      - Watchdog report!
+      - I'm going to crash your Minecraft!
+    death_quotes:
+      - I see you are quite the human...
+      - Of course you'll win! You have a better gaming chair!
+      - Welp...
+      - I guess that's it then...
+      - When will someone stop taking the genocide route?
+      - Nobody will ever win in this endless loop of death and respawning.
+    attacks:
+      lightning_attack: true
+      fire_attack: true
+      explosion_attack: true
+      fling_attack: true
+      ender_guard_attack: true
+      lava_attack: true
+      freeze_attack: true
+      sonic_wave_attack: true
+      potion_attack: true
+      enderman_attack: true
+      boulder_attack: true
+      ender_spirit_attack: true
+      bow_inaccuracy_attack: true
+      flood_attack: true
+
+  earth_dragon:
+    name: "Terra Dragon"
+    spawn_chance: 0.2
+    health: 2000.0
+    boss_bar_color: RED
+    name_color: DARK_RED
+    seconds_between_talk: 10
+    talk_chance: 0.5
+    seconds_between_attack: 20
+    attack_chance: 0.5
+    land_at_portal_chance: 0.5
+    bed_damage: 1.0
+    spawn_quotes:
+      - I will crush you in this battle!
+      - Our battle will be legendary!
+      - Enough talking! Let's get to fighting!
+      - I will avenge my fallen endermen!
+      - Let's dance!
+    talk_quotes:
+      - Why are humans so chaotic?
+      - Time to sweat!
+      - Don't make me turn on my hack client!
+      - I'll make you pay for the times you murdered my endermen!
+      - I'm going to make you regret your actions!
+      - Don't make me use /kill!
+      - Cheater!
+      - Watchdog report!
+      - I'm going to crash your Minecraft!
+    death_quotes:
+      - I see you are quite the human...
+      - Of course you'll win! You have a better gaming chair!
+      - Welp...
+      - I guess that's it then...
+      - When will someone stop taking the genocide route?
+      - Nobody will ever win in this endless loop of death and respawning.
+    attacks:
+      lightning_attack: true
+      fire_attack: true
+      explosion_attack: true
+      fling_attack: true
+      ender_guard_attack: true
+      lava_attack: true
+      freeze_attack: true
+      sonic_wave_attack: true
+      potion_attack: true
+      enderman_attack: true
+      boulder_attack: true
+      ender_spirit_attack: true
+      bow_inaccuracy_attack: true
+      flood_attack: true
+
+  air_dragon:
+    name: "Tempest Dragon"
+    spawn_chance: 0.2
+    health: 2000.0
+    boss_bar_color: WHITE
+    name_color: WHITE
+    seconds_between_talk: 10
+    talk_chance: 0.5
+    seconds_between_attack: 20
+    attack_chance: 0.5
+    land_at_portal_chance: 0.5
+    bed_damage: 1.0
+    spawn_quotes:
+      - I will crush you in this battle!
+      - Our battle will be legendary!
+      - Enough talking! Let's get to fighting!
+      - I will avenge my fallen endermen!
+      - Let's dance!
+    talk_quotes:
+      - Why are humans so chaotic?
+      - Time to sweat!
+      - Don't make me turn on my hack client!
+      - I'll make you pay for the times you murdered my endermen!
+      - I'm going to make you regret your actions!
+      - Don't make me use /kill!
+      - Cheater!
+      - Watchdog report!
+      - I'm going to crash your Minecraft!
+    death_quotes:
+      - I see you are quite the human...
+      - Of course you'll win! You have a better gaming chair!
+      - Welp...
+      - I guess that's it then...
+      - When will someone stop taking the genocide route?
+      - Nobody will ever win in this endless loop of death and respawning.
+    attacks:
+      lightning_attack: true
+      fire_attack: true
+      explosion_attack: true
+      fling_attack: true
+      ender_guard_attack: true
+      lava_attack: true
+      freeze_attack: true
+      sonic_wave_attack: true
+      potion_attack: true
+      enderman_attack: true
+      boulder_attack: true
+      ender_spirit_attack: true
+      bow_inaccuracy_attack: true
+      flood_attack: true
+
+  water_dragon:
+    name: "Tidal Dragon"
+    spawn_chance: 0.2
+    health: 2000.0
+    boss_bar_color: BLUE
+    name_color: BLUE
+    seconds_between_talk: 10
+    talk_chance: 0.5
+    seconds_between_attack: 20
+    attack_chance: 0.5
+    land_at_portal_chance: 0.5
+    bed_damage: 1.0
+    spawn_quotes:
+      - I will crush you in this battle!
+      - Our battle will be legendary!
+      - Enough talking! Let's get to fighting!
+      - I will avenge my fallen endermen!
+      - Let's dance!
+    talk_quotes:
+      - Why are humans so chaotic?
+      - Time to sweat!
+      - Don't make me turn on my hack client!
+      - I'll make you pay for the times you murdered my endermen!
+      - I'm going to make you regret your actions!
+      - Don't make me use /kill!
+      - Cheater!
+      - Watchdog report!
+      - I'm going to crash your Minecraft!
+    death_quotes:
+      - I see you are quite the human...
+      - Of course you'll win! You have a better gaming chair!
+      - Welp...
+      - I guess that's it then...
+      - When will someone stop taking the genocide route?
+      - Nobody will ever win in this endless loop of death and respawning.
+    attacks:
+      lightning_attack: true
+      fire_attack: true
+      explosion_attack: true
+      fling_attack: true
+      ender_guard_attack: true
+      lava_attack: true
+      freeze_attack: true
+      sonic_wave_attack: true
+      potion_attack: true
+      enderman_attack: true
+      boulder_attack: true
+      ender_spirit_attack: true
+      bow_inaccuracy_attack: true
+      flood_attack: true
