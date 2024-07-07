@@ -71,11 +71,15 @@ public class BoulderAttack extends AbstractAttack implements Listener {
                 }
                 if (i % 10 == 0) {
                     for (ArmorStand armorStand : armorStands) {
+                        if (armorStand.isDead())
+                            continue;
                         armorStand.getWorld().spawnParticle(Particle.FLAME, armorStand.getLocation(), 3);
                     }
                 }
                 if (i < 60) {
                     for (ArmorStand armorStand : armorStands) {
+                        if (armorStand.isDead())
+                            continue;
                         armorStand.eject();
                         armorStand.teleport(armorStand.getLocation().add(0, 0.1, 0));
                         armorStand.addPassenger(standBlockLink.get(armorStand));
