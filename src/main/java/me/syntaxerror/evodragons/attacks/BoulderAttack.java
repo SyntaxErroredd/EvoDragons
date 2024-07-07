@@ -60,44 +60,45 @@ public class BoulderAttack extends AbstractAttack implements Listener {
             createBoulder(playerLoc.clone().add(vector), armorStands);
         }
 
-        new BukkitRunnable(){
+        new BukkitRunnable() {
             int i = 0;
+
             @Override
             public void run() {
-                if(armorStands.isEmpty()){
+                if (armorStands.isEmpty()) {
                     cancel();
                     return;
                 }
-                if(i % 10 == 0){
-                    for(ArmorStand armorStand : armorStands){
+                if (i % 10 == 0) {
+                    for (ArmorStand armorStand : armorStands) {
                         armorStand.getWorld().spawnParticle(Particle.FLAME, armorStand.getLocation(), 3);
                     }
                 }
-                if(i < 60) {
-                    for(ArmorStand armorStand : armorStands) {
+                if (i < 60) {
+                    for (ArmorStand armorStand : armorStands) {
                         armorStand.eject();
                         armorStand.teleport(armorStand.getLocation().add(0, 0.1, 0));
                         armorStand.addPassenger(standBlockLink.get(armorStand));
                     }
-                }
-                else{
-                    for(ArmorStand armorStand : armorStands){
-                        if(armorStand.isDead())
+                } else {
+                    List<ArmorStand> toRemove = new ArrayList<>();
+                    for (ArmorStand armorStand : armorStands) {
+                        if (armorStand.isDead())
                             continue;
                         Location armorStandLoc = armorStand.getLocation();
                         armorStand.eject();
                         armorStand.teleport(armorStandLoc.add(player.getEyeLocation().subtract(armorStandLoc).toVector().normalize()));
                         armorStand.addPassenger(standBlockLink.get(armorStand));
-                        if(armorStandLoc.distanceSquared(player.getEyeLocation()) <= 1){
+                        if (armorStandLoc.distanceSquared(player.getEyeLocation()) <= 1) {
                             player.damage(damage / 16, getEvoDragon().getEnderDragon());
                             player.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, player.getEyeLocation(), 5);
-                            Util.playSound(player, Sound.ENTITY_DRAGON_FIREBALL_EXPLODE);
                             standBlockLink.get(armorStand).remove();
                             armorStand.remove();
-                            armorStands.remove(armorStand);
+                            toRemove.add(armorStand);
                             standBlockLink.remove(armorStand);
                         }
                     }
+                    armorStands.removeAll(toRemove);
                 }
                 i++;
             }
