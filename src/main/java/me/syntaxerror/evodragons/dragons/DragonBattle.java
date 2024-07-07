@@ -4,6 +4,7 @@ import com.google.common.base.CaseFormat;
 import me.syntaxerror.evodragons.EvoDragons;
 import me.syntaxerror.evodragons.Util;
 import me.syntaxerror.evodragons.attacks.AbstractAttack;
+import org.bukkit.boss.BarColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EnderDragon;
 import org.bukkit.event.Listener;
@@ -24,13 +25,21 @@ public class DragonBattle implements Listener {
     public DragonBattle(EnderDragon enderDragon, boolean isNewBattle){
         EvoDragons.getInstance().getServer().getPluginManager().registerEvents(this, EvoDragons.getInstance());
         if(isNewBattle) {
-            evoDragons.add(rollDragon(enderDragon));
+            EvoDragon evoDragon = rollDragon(enderDragon);
+            if(evoDragon != null) {
+                evoDragons.add(evoDragon);
+            }
+            else{
+                enderDragon.setCustomName("Ender Dragon");
+                enderDragon.getBossBar().setColor(BarColor.PINK);
+                return;
+            }
         }
         else{
             evoDragons.add(new EvoDragon(enderDragon));
         }
         startTimer();
-        EvoDragons.addDragonBattle(this);
+        EvoDragons.addDragonBattle(this);;
     }
 
     private EvoDragon rollDragon(EnderDragon enderDragon){

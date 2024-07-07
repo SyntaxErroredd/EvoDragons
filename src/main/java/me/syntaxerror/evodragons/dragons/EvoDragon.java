@@ -18,6 +18,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EnderDragonChangePhaseEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
@@ -249,12 +250,23 @@ public class EvoDragon implements Listener{
     @EventHandler
     public void onPhase(EnderDragonChangePhaseEvent event){
         // Manipulate the ender dragon's land at portal rate based on the config settings.
-        // TODO onPhase
+        if(!event.getEntity().equals(enderDragon))
+            return;
+        if(event.getNewPhase() != EnderDragon.Phase.FLY_TO_PORTAL)
+            return;
+        Random random = new Random();
+        double chance = EvoDragons.getInstance().getConfig().getDouble(getConfigPath() + "land_at_portal_chance");
+        if(chance == 0 || random.nextDouble() > chance)
+            event.setCancelled(true);
     }
 
     @EventHandler
-    public void onDamage(EntityDamageByEntityEvent event){
+    public void onDamage(EntityDamageEvent event){
         // Set bed explosion damage based on config settings.
-        // TODO onDamage
+        if(!event.getEntity().equals(enderDragon))
+            return;
+        if(event.getCause() != EntityDamageEvent.DamageCause.BLOCK_EXPLOSION && event.getCause() != EntityDamageEvent.DamageCause.ENTITY_EXPLOSION)
+            return;
+        event.setDamage(EvoDragons.getInstance().getConfig().getDouble(getConfigPath() + "bed_damage"));
     }
 }

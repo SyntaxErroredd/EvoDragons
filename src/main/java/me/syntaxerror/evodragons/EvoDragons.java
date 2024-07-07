@@ -31,6 +31,8 @@ public final class EvoDragons extends JavaPlugin {
 
         LootConfigurationFile.loadConfig();
         DragonSpawn.checkAllDragons();
+
+        Util.init();
     }
 
     @Override

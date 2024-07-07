@@ -1,7 +1,6 @@
-enable_legacy_attacks: false
 attacks:
   lightning_attack:
-    damage: 0.0
+    damage: 25.0
     info_quote: <dragon_name> struck you with lightning, dealing <damage> damage.
     attack_quotes:
       - Lightning Battle!
@@ -14,7 +13,7 @@ attacks:
       - I learnt this from the blazes!
       - Fire!
   explosion_attack:
-    damage: 5.0
+    damage: 25.0
     knockback: 1
     info_quote: <dragon_name> exploded you for <damage> damage.
     attack_quotes:
@@ -32,7 +31,7 @@ attacks:
       - Too bad you can't fly.
   ender_guard_attack:
     name: Ender Guard
-    damage: 2.0
+    damage: 15.0
     health: 50.0
     teleport: true
     teleport_quote: Don't think you can escape me.
@@ -44,13 +43,13 @@ attacks:
       - Guards attack!
   lava_attack:
     block_height: 5
-    damage: 5.0
+    damage: 25.0
     info_quote: <dragon_name> used lava attack on you, dealing a total of <damage> damage.
     attack_quotes:
       - Have you ever swum in lava?
       - I constructed a lava fountain for you!
   freeze_attack:
-    damage: 5.0
+    damage: 25.0
     seconds: 5
     ice_break_attempt_quote: Frost Block refuses to be broken......
     info_quote: <dragon_name> froze you for <seconds> seconds, dealing a total of <damage> damage.
@@ -59,7 +58,7 @@ attacks:
       - You shall go nowhere!
       - This chilly blizzard will stop you!
   sonic_wave_attack:
-    damage: 5.0
+    damage: 25.0
     info_quote: <dragon_name> used sonic wave on you, dealing a total of <damage> damage.
     attack_quotes:
       - Have this wave!
@@ -79,7 +78,7 @@ attacks:
       - I summon my guards!
       - Endermen! Attack!
   boulder_attack:
-    damage: 5.0
+    damage: 25.0
     info_quote: <dragon_name> summoned boulders on you, which hit you for <damage> damage.
     attack_quotes:
       - I'd like to see you run from these boulders.
@@ -87,7 +86,7 @@ attacks:
     name: Ender Spirit
     number: 2
     health: 10.0
-    damage: 4.0
+    damage: 10.0
     spawn_quote: I will avenge the fallen Endermen.
     info_quote: <dragon_name> summoned <ender_spirit_number> <ender_spirit_name> on you.
     attack_quotes:
@@ -101,7 +100,7 @@ attacks:
       - I shall make your bow shots inaccurate
       - Good luck shooting with your bow now!
   flood_attack:
-    damage: 5.0
+    damage: 25.0
     seconds: 5
     info_quote: <dragon_name> flooded you for <seconds> seconds, dealing a total of <damage> damage.
     attack_quotes:
@@ -133,18 +132,18 @@ power_ups:
 dragons:
   energy_dragon:
     name: "Electro Dragon"
-    spawn_chance: 1
+    spawn_chance: 0.2
     health: 2000.0
     boss_bar_color: PURPLE
     name_color: DARK_PURPLE
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 1
+    attack_chance: 1.0
     seconds_between_power_up: 20
-    power_up_chance: 1
-    land_at_portal_chance: 0.5
-    bed_damage: 1.0
+    power_up_chance: 1.0
+    land_at_portal_chance: 1.0
+    bed_damage: 10.0
     spawn_quotes:
       - I will crush you in this battle!
       - Our battle will be legendary!
@@ -199,9 +198,11 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 0.5
-    land_at_portal_chance: 0.5
-    bed_damage: 1.0
+    attack_chance: 1.0
+    seconds_between_power_up: 20
+    power_up_chance: 1.0
+    land_at_portal_chance: 1.0
+    bed_damage: 10.0
     spawn_quotes:
       - I will crush you in this battle!
       - Our battle will be legendary!
@@ -240,6 +241,12 @@ dragons:
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
       flood_attack: true
+    power_ups:
+      armor_resistance: true
+      attack_shield: true
+      homing_arrows: true
+      melee_strength: true
+      projectile_power: true
 
   earth_dragon:
     name: "Terra Dragon"
@@ -250,9 +257,11 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 0.5
-    land_at_portal_chance: 0.5
-    bed_damage: 1.0
+    attack_chance: 1.0
+    seconds_between_power_up: 20
+    power_up_chance: 1.0
+    land_at_portal_chance: 1.0
+    bed_damage: 10.0
     spawn_quotes:
       - I will crush you in this battle!
       - Our battle will be legendary!
@@ -291,6 +300,12 @@ dragons:
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
       flood_attack: true
+    power_ups:
+      armor_resistance: true
+      attack_shield: true
+      homing_arrows: true
+      melee_strength: true
+      projectile_power: true
 
   air_dragon:
     name: "Tempest Dragon"
@@ -301,9 +316,11 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 0.5
-    land_at_portal_chance: 0.5
-    bed_damage: 1.0
+    attack_chance: 1.0
+    seconds_between_power_up: 20
+    power_up_chance: 1.0
+    land_at_portal_chance: 1.0
+    bed_damage: 10.0
     spawn_quotes:
       - I will crush you in this battle!
       - Our battle will be legendary!
@@ -342,6 +359,12 @@ dragons:
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
       flood_attack: true
+    power_ups:
+      armor_resistance: true
+      attack_shield: true
+      homing_arrows: true
+      melee_strength: true
+      projectile_power: true
 
   water_dragon:
     name: "Tidal Dragon"
@@ -352,9 +375,11 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 0.5
-    land_at_portal_chance: 0.5
-    bed_damage: 1.0
+    attack_chance: 1.0
+    seconds_between_power_up: 20
+    power_up_chance: 1.0
+    land_at_portal_chance: 1.0
+    bed_damage: 10.0
     spawn_quotes:
       - I will crush you in this battle!
       - Our battle will be legendary!
@@ -393,3 +418,9 @@ dragons:
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
       flood_attack: true
+    power_ups:
+      armor_resistance: true
+      attack_shield: true
+      homing_arrows: true
+      melee_strength: true
+      projectile_power: true

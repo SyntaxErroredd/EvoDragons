@@ -22,6 +22,7 @@ import java.util.concurrent.Callable;
 public class EditLootInventory implements Listener {
 
     public static final int LOOT_DISPLAY_SLOT = 13;
+    public static final int CLOSE_DISPLAY_SLOT = 18;
     public static final int CHANCE_DISPLAY_SLOT = 22;
     private static final int REMOVE_LOOT_SLOT = 26;
     private final Player owner;
@@ -73,13 +74,14 @@ public class EditLootInventory implements Listener {
     public void chooseLootItemFromInventory(ItemStack chosenItem){
         // Updates the edit loot inventory and the config with the new loot item.
         inventory.setItem(EditLootInventory.LOOT_DISPLAY_SLOT, chosenItem);
+
         if(lootKey == null) {
             lootKey = LootConfigurationFile.addItem(chosenItem, dragonKey);
 
             ItemStack chanceItem = new ItemStack(Material.OAK_SIGN);
-            ItemMeta meta = chanceItem.getItemMeta();
-            meta.setDisplayName("Drop Chance: " + LootConfigurationFile.DEFAULT_CHANCE);
-            chanceItem.setItemMeta(meta);
+            ItemMeta chanceMeta = chanceItem.getItemMeta();
+            chanceMeta.setDisplayName("Drop Chance: " + LootConfigurationFile.DEFAULT_CHANCE);
+            chanceItem.setItemMeta(chanceMeta);
             inventory.setItem(CHANCE_DISPLAY_SLOT, chanceItem);
 
             ItemStack removeLoot = new ItemStack(Material.RED_WOOL);
@@ -108,6 +110,12 @@ public class EditLootInventory implements Listener {
 
     public void openEditLootInventory(){
         // Reopens the edit loot inventory to the owner.
+        ItemStack closeItem = new ItemStack(Material.BARRIER);
+        ItemMeta closeMeta = closeItem.getItemMeta();
+        closeMeta.setDisplayName("Close");
+        closeItem.setItemMeta(closeMeta);
+        inventory.setItem(CLOSE_DISPLAY_SLOT, closeItem);
+
         if(lootKey != null && !lootKey.isEmpty() && Integer.parseInt(lootKey) <= LootConfigurationFile.getLootItems(dragonKey).size() - 1) {
             inventory.setItem(LOOT_DISPLAY_SLOT, LootConfigurationFile.getLootItems(dragonKey).get(Integer.parseInt(lootKey)));
 
@@ -124,6 +132,12 @@ public class EditLootInventory implements Listener {
             inventory.setItem(REMOVE_LOOT_SLOT, removeLoot);
         }
         owner.openInventory(inventory);
+    }
+
+    public void closeInventory(){
+        // Closes the Edit Loot inventory and opens the CHoose Dragon Loot inventory.
+        owner.closeInventory();
+        new ChooseDragonLootInventory(owner, dragonKey);
     }
 
     @EventHandler
@@ -146,30 +160,22 @@ public class EditLootInventory implements Listener {
             chooseLootItemFromInventory(event.getCurrentItem());
         }
 
-        // If the player selects the sign representing the drop chance, allow the player to edit the chance.
+        // If the player selects an option in the edit loot inventory.
         else if(event.getClickedInventory().equals(event.getInventory())){
-            if(event.getSlot() == CHANCE_DISPLAY_SLOT){
-                owner.sendMessage(ChatColor.RED + "Enter the new Drop Chance in chat, or type cancel to cancel:");
-                editingDropChance = true;
-                owner.closeInventory();
-            }
-            else if(event.getSlot() == REMOVE_LOOT_SLOT){
-                LootConfigurationFile.removeItem(dragonKey, lootKey);
-                new ChooseDragonLootInventory(owner, dragonKey);
+            switch(event.getSlot()){
+                case CHANCE_DISPLAY_SLOT:
+                    owner.sendMessage(ChatColor.RED + "Enter the new Drop Chance in chat, or type cancel to cancel:");
+                    editingDropChance = true;
+                    owner.closeInventory();
+                    return;
+                case REMOVE_LOOT_SLOT:
+                    LootConfigurationFile.removeItem(dragonKey, lootKey);
+                    new ChooseDragonLootInventory(owner, dragonKey);
+                    return;
+                case CLOSE_DISPLAY_SLOT:
+                    closeInventory();
             }
         }
-    }
-
-    @EventHandler
-    public void onClose(InventoryCloseEvent event){
-        // Unregisters the EditLootInventory if the player is done editing and closes the inventory.
-        if(!owner.equals(event.getPlayer()))
-            return;
-        if(!event.getInventory().equals(inventory))
-            return;
-        if(editingDropChance)
-            return;
-        HandlerList.unregisterAll(this);
     }
 
     @EventHandler

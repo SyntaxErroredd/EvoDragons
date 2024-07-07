@@ -1,6 +1,7 @@
 package me.syntaxerror.evodragons.dragons.loot;
 
 import me.syntaxerror.evodragons.EvoDragons;
+import me.syntaxerror.evodragons.ScrollableInventory;
 import me.syntaxerror.evodragons.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,35 +15,33 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class ChooseDragonTypeLootInventory implements Listener {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
-    private final Inventory inventory;
-    private final Player owner;
+public class ChooseDragonTypeLootInventory extends ScrollableInventory implements Listener {
 
     public ChooseDragonTypeLootInventory(Player player){
-        EvoDragons.getInstance().getServer().getPluginManager().registerEvents(this, EvoDragons.getInstance());
-        this.owner = player;
-        Inventory inventory = Bukkit.createInventory(null, 54, "Choose EvoDragon:");
-        this.inventory = inventory;
-        showDragonInventory();
+        super(player, "Choose EvoDragon:");
+        showInventory();
     }
 
-    private void showDragonInventory(){
-        // Displays the choose dragon inventory to the player.
-        inventory.clear();
+    @Override
+    public void addInventorySpecifics() {
         FileConfiguration config = EvoDragons.getInstance().getConfig();
-        int slot = 0;
-        for(String dragonKey : config.getConfigurationSection(Util.DRAGONS_CONFIG_PATH).getKeys(false)){
-            String dragonConfig = Util.DRAGONS_CONFIG_PATH + "." + dragonKey + ".";
+        List<String> dragonKeys = new ArrayList<>(config.getConfigurationSection(Util.DRAGONS_CONFIG_PATH).getKeys(false));
+        for(int slot = 0; slot < 45; slot++){
+            int dragonKeyIndex = slot + (getPage() - 1) * 45;
+            if(dragonKeyIndex >= dragonKeys.size())
+                return;
+            String dragonConfig = Util.DRAGONS_CONFIG_PATH + "." + dragonKeys.get(dragonKeyIndex) + ".";
             ItemStack itemStack = new ItemStack(Material.DRAGON_EGG, 1);
             ItemMeta itemMeta = itemStack.getItemMeta();
             itemMeta.setDisplayName(ChatColor.valueOf(config.getString(dragonConfig + "name_color")) +
                     config.getString(dragonConfig + "name"));
             itemStack.setItemMeta(itemMeta);
-            inventory.setItem(slot, itemStack);
-            slot++;
+            getInventory().setItem(slot, itemStack);
         }
-        owner.openInventory(inventory);
     }
 
     private String getDragonKey(String name){
@@ -60,9 +59,9 @@ public class ChooseDragonTypeLootInventory implements Listener {
     public void onClick(InventoryClickEvent event){
         if(!(event.getWhoClicked() instanceof Player))
             return;
-        if(!owner.equals(event.getWhoClicked()))
+        if(!getOwner().equals(event.getWhoClicked()))
             return;
-        if(!inventory.equals(event.getClickedInventory()))
+        if(!getInventory().equals(event.getClickedInventory()))
             return;
         if(event.getCurrentItem() == null)
             return;
@@ -72,6 +71,6 @@ public class ChooseDragonTypeLootInventory implements Listener {
         String dragonKey = getDragonKey(event.getCurrentItem().getItemMeta().getDisplayName());
         if(dragonKey == null)
             return;
-        new ChooseDragonLootInventory(owner, dragonKey);
+        new ChooseDragonLootInventory(getOwner(), dragonKey);
     }
 }

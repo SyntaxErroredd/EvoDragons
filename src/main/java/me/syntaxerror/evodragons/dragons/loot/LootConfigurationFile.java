@@ -61,8 +61,10 @@ public class LootConfigurationFile {
     public static List<ItemStack> getLootItems(String dragonKey){
         // Returns a list of all ItemStacks for the specified dragon.
         List<ItemStack> loot = new ArrayList<>();
-        for(String lootKey : config.getConfigurationSection(dragonKey).getKeys(false)){
-            loot.add(config.getItemStack(dragonKey + "." + lootKey + ".item_stack"));
+        if(config.getConfigurationSection(dragonKey) != null) {
+            for (String lootKey : config.getConfigurationSection(dragonKey).getKeys(false)) {
+                loot.add(config.getItemStack(dragonKey + "." + lootKey + ".item_stack"));
+            }
         }
         return loot;
     }
@@ -76,14 +78,16 @@ public class LootConfigurationFile {
         // Returns a list of ItemStacks that can be dropped after taking drop chance into consideration.
         List<ItemStack> loot = new ArrayList<>();
         Random random = new Random();
-        for(String lootKey : config.getConfigurationSection(dragonKey).getKeys(false)){
-            String lootPath = dragonKey + "." + lootKey + ".";
-            double chance = config.getDouble(lootPath + "chance");
-            if(chance == 0)
-                continue;
-            if(random.nextDouble() > chance)
-                continue;
-            loot.add(config.getItemStack(lootPath + "item_stack"));
+        if(config.getConfigurationSection(dragonKey) != null) {
+            for (String lootKey : config.getConfigurationSection(dragonKey).getKeys(false)) {
+                String lootPath = dragonKey + "." + lootKey + ".";
+                double chance = config.getDouble(lootPath + "chance");
+                if (chance == 0)
+                    continue;
+                if (random.nextDouble() > chance)
+                    continue;
+                loot.add(config.getItemStack(lootPath + "item_stack"));
+            }
         }
         return loot;
     }
