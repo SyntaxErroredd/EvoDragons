@@ -1,11 +1,9 @@
 package me.syntaxerror.evodragons;
 
 import me.syntaxerror.evodragons.commands.AdminCommands;
-import me.syntaxerror.evodragons.commands.TestCommands;
 import me.syntaxerror.evodragons.dragons.DragonBattle;
 import me.syntaxerror.evodragons.dragons.DragonSpawn;
 import me.syntaxerror.evodragons.dragons.loot.LootConfigurationFile;
-import me.syntaxerror.evodragons.dragons.loot.ChooseDragonLootInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -24,7 +22,6 @@ public final class EvoDragons extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(new DragonSpawn(), this);
 
-        this.getCommand("dragon").setExecutor(new TestCommands());
         this.getCommand("evodragons").setExecutor(new AdminCommands());
 
         this.saveDefaultConfig();
