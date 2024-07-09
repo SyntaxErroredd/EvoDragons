@@ -139,9 +139,9 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 1.0
-    seconds_between_power_up: 20
-    power_up_chance: 1.0
+    attack_chance: 0.5
+    seconds_between_power_up: 120
+    power_up_chance: 0.5
     land_at_portal_chance: 1.0
     bed_damage: 10.0
     spawn_quotes:
@@ -169,19 +169,19 @@ dragons:
       - Nobody will ever win in this endless loop of death and respawning.
     attacks:
       lightning_attack: true
-      fire_attack: true
-      explosion_attack: true
-      fling_attack: true
+      fire_attack: false
+      explosion_attack: false
+      fling_attack: false
       ender_guard_attack: true
-      lava_attack: true
-      freeze_attack: true
+      lava_attack: false
+      freeze_attack: false
       sonic_wave_attack: true
-      potion_attack: true
+      potion_attack: false
       enderman_attack: true
-      boulder_attack: true
+      boulder_attack: false
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
-      flood_attack: true
+      flood_attack: false
     power_ups:
       armor_resistance: true
       attack_shield: true
@@ -198,9 +198,9 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 1.0
-    seconds_between_power_up: 20
-    power_up_chance: 1.0
+    attack_chance: 0.5
+    seconds_between_power_up: 120
+    power_up_chance: 0.5
     land_at_portal_chance: 1.0
     bed_damage: 10.0
     spawn_quotes:
@@ -227,20 +227,20 @@ dragons:
       - When will someone stop taking the genocide route?
       - Nobody will ever win in this endless loop of death and respawning.
     attacks:
-      lightning_attack: true
+      lightning_attack: false
       fire_attack: true
-      explosion_attack: true
-      fling_attack: true
+      explosion_attack: false
+      fling_attack: false
       ender_guard_attack: true
       lava_attack: true
-      freeze_attack: true
-      sonic_wave_attack: true
-      potion_attack: true
+      freeze_attack: false
+      sonic_wave_attack: false
+      potion_attack: false
       enderman_attack: true
-      boulder_attack: true
+      boulder_attack: false
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
-      flood_attack: true
+      flood_attack: false
     power_ups:
       armor_resistance: true
       attack_shield: true
@@ -257,9 +257,9 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 1.0
-    seconds_between_power_up: 20
-    power_up_chance: 1.0
+    attack_chance: 0.5
+    seconds_between_power_up: 120
+    power_up_chance: 0.5
     land_at_portal_chance: 1.0
     bed_damage: 10.0
     spawn_quotes:
@@ -286,20 +286,20 @@ dragons:
       - When will someone stop taking the genocide route?
       - Nobody will ever win in this endless loop of death and respawning.
     attacks:
-      lightning_attack: true
-      fire_attack: true
+      lightning_attack: false
+      fire_attack: false
       explosion_attack: true
-      fling_attack: true
+      fling_attack: false
       ender_guard_attack: true
-      lava_attack: true
-      freeze_attack: true
-      sonic_wave_attack: true
-      potion_attack: true
+      lava_attack: false
+      freeze_attack: false
+      sonic_wave_attack: false
+      potion_attack: false
       enderman_attack: true
       boulder_attack: true
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
-      flood_attack: true
+      flood_attack: false
     power_ups:
       armor_resistance: true
       attack_shield: true
@@ -316,9 +316,9 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 1.0
-    seconds_between_power_up: 20
-    power_up_chance: 1.0
+    attack_chance: 0.5
+    seconds_between_power_up: 120
+    power_up_chance: 0.5
     land_at_portal_chance: 1.0
     bed_damage: 10.0
     spawn_quotes:
@@ -345,20 +345,20 @@ dragons:
       - When will someone stop taking the genocide route?
       - Nobody will ever win in this endless loop of death and respawning.
     attacks:
-      lightning_attack: true
-      fire_attack: true
-      explosion_attack: true
+      lightning_attack: false
+      fire_attack: false
+      explosion_attack: false
       fling_attack: true
       ender_guard_attack: true
-      lava_attack: true
-      freeze_attack: true
-      sonic_wave_attack: true
+      lava_attack: false
+      freeze_attack: false
+      sonic_wave_attack: false
       potion_attack: true
       enderman_attack: true
-      boulder_attack: true
+      boulder_attack: false
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
-      flood_attack: true
+      flood_attack: false
     power_ups:
       armor_resistance: true
       attack_shield: true
@@ -375,9 +375,9 @@ dragons:
     seconds_between_talk: 10
     talk_chance: 0.5
     seconds_between_attack: 20
-    attack_chance: 1.0
-    seconds_between_power_up: 20
-    power_up_chance: 1.0
+    attack_chance: 0.5
+    seconds_between_power_up: 120
+    power_up_chance: 0.5
     land_at_portal_chance: 1.0
     bed_damage: 10.0
     spawn_quotes:
@@ -404,17 +404,17 @@ dragons:
       - When will someone stop taking the genocide route?
       - Nobody will ever win in this endless loop of death and respawning.
     attacks:
-      lightning_attack: true
-      fire_attack: true
-      explosion_attack: true
-      fling_attack: true
+      lightning_attack: false
+      fire_attack: false
+      explosion_attack: false
+      fling_attack: false
       ender_guard_attack: true
-      lava_attack: true
+      lava_attack: false
       freeze_attack: true
-      sonic_wave_attack: true
-      potion_attack: true
+      sonic_wave_attack: false
+      potion_attack: false
       enderman_attack: true
-      boulder_attack: true
+      boulder_attack: false
       ender_spirit_attack: true
       bow_inaccuracy_attack: true
       flood_attack: true

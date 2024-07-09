@@ -7,6 +7,7 @@ import me.syntaxerror.evodragons.attacks.AbstractAttack;
 import me.syntaxerror.evodragons.dragons.loot.LootConfigurationFile;
 import me.syntaxerror.evodragons.powerups.AbstractPowerUp;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.boss.BarColor;
 import org.bukkit.configuration.ConfigurationSection;
@@ -227,12 +228,14 @@ public class EvoDragon implements Listener{
 
     public List<Player> getNearbyPlayers(){
         // Returns a list of nearby players to the ender dragon.
-        // TODO check for creative and spectator modes.
         List<Player> nearbyPlayers = new ArrayList<>();
         for(Entity entity : enderDragon.getNearbyEntities(Util.DRAGON_RANGE, Util.DRAGON_RANGE, Util.DRAGON_RANGE)){
             if(!(entity instanceof Player))
                 continue;
-            nearbyPlayers.add((Player) entity);
+            Player player = (Player) entity;
+            if(player.getGameMode() == GameMode.CREATIVE || player.getGameMode() == GameMode.SPECTATOR)
+                continue;
+            nearbyPlayers.add(player);
         }
         return nearbyPlayers;
     }
