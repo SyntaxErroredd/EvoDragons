@@ -5,4 +5,4 @@ api-version: '1.16'
 commands:
   evodragons:
     description: all commands related to EvoDragons
-    usage: /<command>
+    usage: "/evodragons [reload, loot]"
