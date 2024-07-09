@@ -1,6 +1,7 @@
 package me.syntaxerror.evodragons.dragons.loot;
 
 import me.syntaxerror.evodragons.EvoDragons;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -33,7 +34,14 @@ public class LootConfigurationFile {
 
     public static String addItem(ItemStack itemStack, String dragonKey){
         // Adds an ItemStack to the config, in key dragonKey. Returns the added lootKey.
-        String lootKey = String.valueOf(config.getConfigurationSection(dragonKey).getKeys(false).size());
+        ConfigurationSection section = config.getConfigurationSection(dragonKey);
+        String lootKey;
+        if(section == null){
+            lootKey = "0";
+        }
+        else {
+            lootKey = String.valueOf(section.getKeys(false).size());
+        }
         config.set(dragonKey + "." + lootKey + ".item_stack", itemStack);
         config.set(dragonKey + "." + lootKey + ".chance", DEFAULT_CHANCE);
         saveConfig();
