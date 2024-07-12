@@ -35,6 +35,7 @@ public abstract class ScrollableInventory implements Listener {
     }
 
     public void showInventory(){
+        // Opens the inventory with arrows and inventory specific items to the owner.
         inventory.clear();
 
         addInventorySpecifics();

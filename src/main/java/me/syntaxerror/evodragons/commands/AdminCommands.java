@@ -3,6 +3,7 @@ package me.syntaxerror.evodragons.commands;
 import me.syntaxerror.evodragons.EvoDragons;
 import me.syntaxerror.evodragons.dragons.loot.ChooseDragonLootInventory;
 import me.syntaxerror.evodragons.dragons.loot.ChooseDragonTypeLootInventory;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,6 +31,7 @@ public class AdminCommands implements CommandExecutor, TabExecutor {
         }
         else if(strings[0].equalsIgnoreCase("reload")){
             EvoDragons.getInstance().reloadConfig();
+            sender.sendMessage(ChatColor.GREEN + "EvoDragons reloaded successfully.");
             return true;
         }
         return false;
