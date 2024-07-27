@@ -67,7 +67,7 @@ attacks:
     seconds: 10
     info_quote: <dragon_name> gave you blindness, nausea, weakness and slowness for <seconds> seconds.
     attack_quotes:
-      - Splash splash splash
+      - Splash, splash, splash!
       - The witch gave me these!
       - Too bad you aren't immune to potions like I am!
   enderman_attack:
@@ -97,7 +97,7 @@ attacks:
     max_degrees: 22
     info_quote: <dragon_name> made your bow shots inaccurate for <seconds> seconds.
     attack_quotes:
-      - I shall make your bow shots inaccurate
+      - I shall make your bow shots inaccurate!
       - Good luck shooting with your bow now!
   flood_attack:
     damage: 25.0
@@ -131,7 +131,7 @@ power_ups:
 
 dragons:
   energy_dragon:
-    name: "Electro Dragon"
+    name: Electro Dragon
     spawn_chance: 0.2
     health: 2000.0
     boss_bar_color: PURPLE
@@ -190,7 +190,7 @@ dragons:
       projectile_power: true
 
   fire_dragon:
-    name: "Inferno Dragon"
+    name: Inferno Dragon
     spawn_chance: 0.2
     health: 2000.0
     boss_bar_color: RED
@@ -249,7 +249,7 @@ dragons:
       projectile_power: true
 
   earth_dragon:
-    name: "Terra Dragon"
+    name: Terra Dragon
     spawn_chance: 0.2
     health: 2000.0
     boss_bar_color: RED
@@ -308,7 +308,7 @@ dragons:
       projectile_power: true
 
   air_dragon:
-    name: "Tempest Dragon"
+    name: Tempest Dragon
     spawn_chance: 0.2
     health: 2000.0
     boss_bar_color: WHITE
@@ -367,7 +367,7 @@ dragons:
       projectile_power: true
 
   water_dragon:
-    name: "Tidal Dragon"
+    name: Tidal Dragon
     spawn_chance: 0.2
     health: 2000.0
     boss_bar_color: BLUE
