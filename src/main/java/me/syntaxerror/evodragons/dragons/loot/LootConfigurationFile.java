@@ -50,7 +50,13 @@ public class LootConfigurationFile {
 
     public static void removeItem(String dragonKey, String lootKey){
         // Removes an item from the config based on its dragon key and save key.
-        config.set(dragonKey + "." + lootKey, null);
+        List<ItemStack> updatedItems = getLootItems(dragonKey);
+        updatedItems.remove(Integer.parseInt(lootKey));
+        for(int i = Integer.parseInt(lootKey); i < updatedItems.size(); i++){
+            config.set(dragonKey + "." + i + ".item_stack", updatedItems.get(i));
+            config.set(dragonKey + "." + i + ".chance", getLootChance(dragonKey, String.valueOf(i + 1)));
+        }
+        config.set(dragonKey + "." + updatedItems.size(), null);
         saveConfig();
     }
 

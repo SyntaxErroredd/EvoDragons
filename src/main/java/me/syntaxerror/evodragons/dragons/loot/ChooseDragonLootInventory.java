@@ -71,7 +71,7 @@ public class ChooseDragonLootInventory extends ScrollableInventory implements Li
         event.setCancelled(true);
 
         if(event.getCurrentItem() != null && event.getSlot() < ARROW_PREVIOUS_SLOT){
-            new EditLootInventory(player, dragonKey, String.valueOf(event.getSlot()));
+            new EditLootInventory(player, dragonKey, String.valueOf(event.getSlot() + (getPage() - 1) * 45));
         }
         else{
             switch(event.getSlot()){

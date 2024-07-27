@@ -90,6 +90,8 @@ public class BoulderAttack extends AbstractAttack implements Listener {
                         if (armorStand.isDead())
                             continue;
                         Location armorStandLoc = armorStand.getLocation();
+                        if(!armorStandLoc.getWorld().equals(player.getWorld()))
+                            continue;
                         armorStand.eject();
                         armorStand.teleport(armorStandLoc.add(player.getEyeLocation().subtract(armorStandLoc).toVector().normalize()));
                         armorStand.addPassenger(standBlockLink.get(armorStand));
